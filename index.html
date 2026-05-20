@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Left Coast Learning — EdTech for Higher Education</title>
+  <meta name="description" content="Left Coast Learning LLC is a California-based EdTech company building accessibility-first tools for higher education. Home of Remedy508." />
+  <meta property="og:title" content="Left Coast Learning" />
+  <meta property="og:description" content="Building accessibility-first tools for higher education. Home of Remedy508." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:       #ffffff;
+      --off-white:   #f8f9fa;
+      --slate-50:    #f1f3f5;
+      --slate-200:   #dee2e6;
+      --slate-400:   #868e96;
+      --slate-600:   #495057;
+      --slate-800:   #343a40;
+      --slate-900:   #212529;
+      --teal:        #076d86;
+      --teal-dark:   #055a70;
+      --teal-light:  #d0eef5;
+      --accent:      #076d86;
+      --accent-dark: #055a70;
+
+      --font-display: 'Clash Display', 'General Sans', sans-serif;
+      --font-body:    'General Sans', 'Helvetica Neue', sans-serif;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.875rem;
+      --radius-xl: 1.25rem;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(33,37,41,0.07);
+      --shadow-md: 0 4px 16px rgba(33,37,41,0.09);
+      --shadow-lg: 0 12px 40px rgba(33,37,41,0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      color: var(--slate-900);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .nav__inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: 1rem clamp(1.5rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      text-decoration: none;
+    }
+    .nav__logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .nav__logo-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--slate-900);
+      line-height: 1.15;
+    }
+    .nav__logo-sub {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--slate-400);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--teal);
+      padding: 0.5rem 1.125rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      border: 2px solid var(--teal);
+      transition: background 160ms ease, color 160ms ease;
+    }
+    .nav__cta:hover {
+      background: var(--teal-dark);
+      border-color: var(--teal-dark);
+    }
+
+    /* ── HERO ── */
+    .hero-section {
+      background: var(--slate-900);
+    }
+    .hero {
+      max-width: 780px;
+      margin-inline: auto;
+      padding: clamp(5rem, 12vw, 8rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
+    }
+
+    /* hero wordmark visual */
+    .hero__wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0;
+      user-select: none;
+    }
+    .hero__wm-line {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--slate-200);
+      text-transform: uppercase;
+    }
+    .hero__wm-line--1 { font-size: clamp(3rem, 2rem + 4vw, 6rem); }
+    .hero__wm-line--2 { font-size: clamp(3rem, 2rem + 4vw, 6rem); }
+    .hero__wm-line--3 { font-size: clamp(3rem, 2rem + 4vw, 6rem); }
+    .hero__wm-divider {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--slate-200);
+      margin: 1rem 0 0.75rem;
+    }
+    .hero__wm-sub {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 1.5rem + 4vw, 5rem);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .hero__body {
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 46ch;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 160ms ease;
+      white-space: nowrap;
+    }
+    .btn-dark {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    .btn-dark:hover {
+      background: var(--teal-dark);
+      border-color: var(--teal-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--slate-800);
+      border-color: var(--slate-200);
+    }
+    .btn-outline:hover {
+      border-color: var(--slate-400);
+      background: var(--slate-50);
+    }
+    .hero-section .btn-outline {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .hero-section .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Hero visual — abstract mark */
+    .hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__mark {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1;
+    }
+
+    /* Divider */
+    .divider {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--slate-200);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 3rem);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (max-width: 640px) { .about { grid-template-columns: 1fr; } }
+
+    .about__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+      padding-top: 0.25rem;
+    }
+    .about__content {}
+    .about__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .about__body {
+      font-size: 1rem;
+      color: var(--slate-600);
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+    .about__body + .about__body { margin-top: 1rem; }
+
+    /* ── PRODUCT CARD ── */
+    .product-section {
+      background: var(--off-white);
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 3rem);
+    }
+    .product-inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: center;
+    }
+    @media (max-width: 700px) { .product-inner { grid-template-columns: 1fr; } }
+
+    .product__eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .product__name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.08;
+      margin-bottom: 0.75rem;
+    }
+    .product__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--slate-400);
+      margin-bottom: 1.5rem;
+    }
+    .product__body {
+      font-size: 1rem;
+      color: var(--slate-600);
+      line-height: 1.75;
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+    .product__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Tool list */
+    .tool-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tool-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .tool-item:first-child { border-top: 1px solid var(--slate-200); }
+    .tool-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--teal-light);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .tool-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .tool-name {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--slate-900);
+      letter-spacing: -0.01em;
+    }
+    .tool-desc {
+      font-size: 0.875rem;
+      color: var(--slate-600);
+      line-height: 1.55;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 3rem);
+    }
+    .services__header {
+      margin-bottom: 3rem;
+    }
+    .services__eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+      margin-bottom: 0.75rem;
+    }
+    .services__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 720px) { .services__grid { grid-template-columns: 1fr; } }
+    @media (min-width: 480px) and (max-width: 720px) { .services__grid { grid-template-columns: 1fr 1fr; } }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      transition: box-shadow 160ms ease, transform 160ms ease;
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .service-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-600);
+      margin-bottom: 1.25rem;
+    }
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--slate-900);
+      margin-bottom: 0.625rem;
+      line-height: 1.3;
+    }
+    .service-card__body {
+      font-size: 0.9375rem;
+      color: var(--slate-600);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--slate-900);
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 3rem);
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: start;
+    }
+    @media (max-width: 680px) { .contact-inner { grid-template-columns: 1fr; } }
+
+    .contact__eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+      margin-bottom: 1rem;
+    }
+    .contact__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+    }
+    .contact__body {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 46ch;
+      margin-bottom: 2rem;
+    }
+    .contact__email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+    .contact__email:hover { color: var(--white); }
+
+    /* Contact form */
+    .form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.375rem; }
+    .form-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+    }
+    .form-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+    .form-field::placeholder { color: rgba(255,255,255,0.3); }
+    .form-field:focus {
+      outline: none;
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.09);
+    }
+    textarea.form-field { min-height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--slate-900);
+      background: var(--white);
+      padding: 0.8rem 1.75rem;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      transition: background 160ms ease, opacity 160ms ease;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    .btn-submit:hover { background: var(--slate-50); }
+
+    /* Form success */
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: rgba(255,255,255,0.7);
+    }
+    #form-success strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--slate-200);
+      padding: 2rem clamp(1.5rem, 5vw, 3rem);
+    }
+    .footer__inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: var(--slate-400);
+    }
+    .footer__links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer__links a {
+      font-size: 0.8125rem;
+      color: var(--slate-400);
+      text-decoration: none;
+    }
+    .footer__links a:hover { color: var(--slate-800); }
+
+    /* ── SCROLL FADE-IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Focus styles */
+    :focus-visible {
+      outline: 2px solid var(--slate-600);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Left Coast Learning home">
+      <img src="./logo.jpg" alt="Left Coast Learning LLC" style="height: 40px; width: auto; display: block;" />
+    </a>
+    <a href="#contact" class="nav__cta">Get in touch</a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<main id="main">
+<div class="hero-section">
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__copy">
+    <h1 class="hero__title" id="hero-heading">
+      We build tools<br>educators <em>actually use.</em>
+    </h1>
+    <p class="hero__body">
+      Left Coast Learning creates technology that helps faculty teach better — without the compliance headaches. Our tools are purpose-built for higher education.
+    </p>
+    <div class="hero__actions">
+      <a href="https://remedy508.com" class="btn btn-dark" target="_blank" rel="noopener">
+        Visit Remedy508
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+  </div>
+
+
+</section>
+</div>
+
+<div class="divider"><hr /></div>
+
+<!-- ══ ABOUT ══ -->
+<section class="about fade-in" aria-labelledby="about-heading">
+  <p class="about__label">About</p>
+  <div class="about__content">
+    <h2 class="about__title" id="about-heading">
+      The company behind<br>Remedy508
+    </h2>
+    <p class="about__body">
+      Left Coast Learning LLC is a California-based EdTech company founded by an instructional designer with a simple conviction: accessibility isn't a compliance checkbox — it's what good teaching looks like.
+    </p>
+    <p class="about__body">
+      We build tools that help faculty at community colleges and universities create accessible courses, documents, and media — faster, and without needing to be experts in accessibility law.
+    </p>
+  </div>
+</section>
+
+<div class="divider"><hr /></div>
+
+<!-- ══ PRODUCT ══ -->
+<section class="product-section" aria-labelledby="product-heading">
+  <div class="product-inner">
+    <div class="fade-in">
+      <p class="product__eyebrow">Flagship Product</p>
+      <h2 class="product__name" id="product-heading">Remedy508</h2>
+      <p class="product__tagline">"Not Accessible, Not Acceptable™"</p>
+      <p class="product__body">
+        An AI-powered accessibility platform that automatically remediates documents, PDFs, videos, Canvas content, and images into WCAG 2.1 AA-compliant materials. Built for higher education, used by faculty who have better things to do than fix tagging errors.
+      </p>
+      <div class="product__actions">
+        <a href="https://remedy508.com" class="btn btn-dark" target="_blank" rel="noopener">
+          Go to Remedy508
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://remedy508.com/#pricing" class="btn btn-outline" target="_blank" rel="noopener">View pricing</a>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <ul class="tool-list" role="list" aria-label="Remedy508 tools">
+        <li class="tool-item">
+          <span class="tool-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
+          <div class="tool-info">
+            <strong class="tool-name">Document Fixer</strong>
+            <span class="tool-desc">Instantly remediates Word docs and PDFs to meet WCAG 2.1 AA — headings, alt text, reading order, and more.</span>
+          </div>
+        </li>
+        <li class="tool-item">
+          <span class="tool-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </span>
+          <div class="tool-info">
+            <strong class="tool-name">Complex PDF</strong>
+            <span class="tool-desc">Handles multi-column layouts, tables, and form-heavy PDFs that standard tools can't touch.</span>
+          </div>
+        </li>
+        <li class="tool-item">
+          <span class="tool-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </span>
+          <div class="tool-info">
+            <strong class="tool-name">Video Accessibility</strong>
+            <span class="tool-desc">Generates accurate captions and transcripts so your video content is compliant and searchable.</span>
+          </div>
+        </li>
+        <li class="tool-item">
+          <span class="tool-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </span>
+          <div class="tool-info">
+            <strong class="tool-name">Canvas Review</strong>
+            <span class="tool-desc">Audits your Canvas course for accessibility issues and gives faculty a clear, prioritized fix list.</span>
+          </div>
+        </li>
+        <li class="tool-item">
+          <span class="tool-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </span>
+          <div class="tool-info">
+            <strong class="tool-name">AI Alt Text</strong>
+            <span class="tool-desc">Uses AI to write WCAG-compliant image descriptions automatically — no manual writing required.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="services fade-in" aria-labelledby="services-heading">
+  <div class="services__header">
+    <p class="services__eyebrow">What we do</p>
+    <h2 class="services__title" id="services-heading">Beyond the product</h2>
+  </div>
+  <div class="services__grid">
+    <div class="service-card">
+      <div class="service-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3 class="service-card__title">Instructional Design</h3>
+      <p class="service-card__body">Course development, accessible content creation, and curriculum review for faculty and online education departments.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      </div>
+      <h3 class="service-card__title">AI &amp; Tech Integration</h3>
+      <p class="service-card__body">Strategic consulting on AI tools for education — implementation, ethics, accessibility, and Canvas LMS integration.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 class="service-card__title">Faculty Workshops</h3>
+      <p class="service-card__body">Custom training on accessibility, accessible document creation, and Canvas best practices — delivered online or on-site.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr /></div>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+    <div class="fade-in">
+      <p class="contact__eyebrow">Get in touch</p>
+      <h2 class="contact__title" id="contact-heading">Let's talk about your institution.</h2>
+      <p class="contact__body">Whether you're exploring Remedy508 for campus-wide deployment, need consulting support, or have an RFP — reach out and we'll respond within one business day.</p>
+      <a href="mailto:hello@leftcoastlearning.com" class="contact__email" aria-label="Email hello@leftcoastlearning.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        hello@leftcoastlearning.com
+      </a>
+    </div>
+
+    <div class="fade-in">
+      <form id="contact-form" novalidate aria-label="Contact form">
+        <div id="form-success" role="status" aria-live="polite">
+          <strong>Message sent.</strong>
+          We'll be in touch within one business day.
+        </div>
+        <div id="form-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">First name <span aria-hidden="true">*</span></label>
+              <input class="form-field" type="text" id="fname" name="first_name" required autocomplete="given-name" placeholder="Amanda" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lname">Last name <span aria-hidden="true">*</span></label>
+              <input class="form-field" type="text" id="lname" name="last_name" required autocomplete="family-name" placeholder="Carpenter" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
+            <input class="form-field" type="email" id="email" name="email" required autocomplete="email" placeholder="you@institution.edu" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="institution">Institution</label>
+            <input class="form-field" type="text" id="institution" name="institution" autocomplete="organization" placeholder="Solano Community College" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea class="form-field" id="message" name="message" required placeholder="Tell us what you're working on…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            Send message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <p class="footer__copy">&copy; 2026 Left Coast Learning LLC. All rights reserved.</p>
+    <nav class="footer__links" aria-label="Footer links">
+      <a href="https://remedy508.com" target="_blank" rel="noopener">Remedy508</a>
+      <a href="mailto:hello@leftcoastlearning.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // ── Scroll fade-in
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Contact form
+  const form = document.getElementById('contact-form');
+  const fields = document.getElementById('form-fields');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if (!el.value.trim()) { el.style.borderColor = 'rgba(255,100,100,0.6)'; valid = false; }
+      else { el.style.borderColor = ''; }
+    });
+    if (!valid) return;
+    fields.style.display = 'none';
+    success.style.display = 'block';
+    console.log('Form submitted:', Object.fromEntries(new FormData(form)));
+  });
+
+  // ── Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
