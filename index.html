@@ -806,29 +806,6 @@
     </div>
 
     <div class="fade-in">
-      <!-- Hidden iframe to absorb Zoho redirect -->
-      <iframe name="zoho-sink" style="display:none" title="form-submit-target"></iframe>
-
-      <!-- Hidden Zoho submission form -->
-      <form
-        id="zoho-form"
-        action="https://forms.zohopublic.com/helloreme1/form/LeftCoastLearningLLCInquiry/formperma/4oqUqRJAPhAG7nj-4YMmt0iKp78xemmtOxzJzz1GHxM/htmlRecords/submit"
-        method="POST"
-        target="zoho-sink"
-        style="display:none"
-        aria-hidden="true"
-      >
-        <input type="text" name="Name_First" id="z-fname" />
-        <input type="text" name="Name_Last" id="z-lname" />
-        <input type="email" name="Email" id="z-email" />
-        <input type="text" name="SingleLine" id="z-institution" />
-        <textarea name="MultiLine" id="z-message"></textarea>
-        <input type="hidden" name="zf_referrer_name" value="" />
-        <input type="hidden" name="zf_redirect_url" value="" />
-        <input type="hidden" name="zc_gad" value="" />
-      </form>
-
-      <!-- Visible styled form -->
       <form id="contact-form" novalidate aria-label="Contact form">
         <div id="form-success" role="status" aria-live="polite">
           <strong>Message sent.</strong>
@@ -891,7 +868,7 @@
   const form = document.getElementById('contact-form');
   const fields = document.getElementById('form-fields');
   const success = document.getElementById('form-success');
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const required = form.querySelectorAll('[required]');
     let valid = true;
@@ -900,13 +877,11 @@
       else { el.style.borderColor = ''; }
     });
     if (!valid) return;
-    // Sync values to hidden Zoho form and submit
-    document.getElementById('z-fname').value = document.getElementById('fname').value;
-    document.getElementById('z-lname').value = document.getElementById('lname').value;
-    document.getElementById('z-email').value = document.getElementById('email').value;
-    document.getElementById('z-institution').value = document.getElementById('institution').value;
-    document.getElementById('z-message').value = document.getElementById('message').value;
-    document.getElementById('zoho-form').submit();
+    await fetch('https://formspree.io/f/mvzykwkz', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
     fields.style.display = 'none';
     success.style.display = 'block';
   });
